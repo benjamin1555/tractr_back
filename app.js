@@ -4,10 +4,12 @@ require('dotenv').config();
 
 const productRouter = require('./routes/product');
 
+const setHeaders = require('./middleware/setHeaders');
 const errorHandler = require('./middlewares/errorHandler');
 
 const app = express();
 
+app.use(setHeaders);
 app.use(express.json());
 
 app.use(productRouter);
