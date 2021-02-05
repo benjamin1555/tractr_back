@@ -64,21 +64,16 @@ exports.getProduct = async (req, res, next) => {
 // Private
 
 const makeSearchProductsQuery = queryParams => {
-  queryParams = castValuesToNum(queryParams);
-  return Product.find(queryParams);
-};
-
-const castValuesToNum = queryParams => {
   const priceMin = queryParams.price_min || 0;
   const priceMax = queryParams.price_max || 9999;
   delete queryParams.price_min;
   delete queryParams.price_max;
 
-  return {
+  return Product.find({
     ...queryParams,
     price: {
       $gte: priceMin,
       $lt: priceMax
     }
-  };
+  });
 };
