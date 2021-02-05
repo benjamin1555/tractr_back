@@ -4,7 +4,7 @@ require('dotenv').config();
 
 const productRouter = require('./routes/product');
 
-const setHeaders = require('./middleware/setHeaders');
+const setHeaders = require('./middlewares/setHeaders');
 const errorHandler = require('./middlewares/errorHandler');
 
 const app = express();
