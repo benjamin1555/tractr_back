@@ -75,5 +75,5 @@ const makeSearchProductsQuery = queryParams => {
       $gte: priceMin,
       $lt: priceMax
     }
-  });
+  }).sort({ brand: 1 });
 };
