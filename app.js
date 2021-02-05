@@ -4,11 +4,15 @@ require('dotenv').config();
 
 const productRouter = require('./routes/product');
 
+const errorHandler = require('./middlewares/errorHandler');
+
 const app = express();
 
 app.use(express.json());
 
 app.use(productRouter);
+
+app.use(errorHandler);
 
 mongoose
   .connect(process.env.MONGODB_URI, {
