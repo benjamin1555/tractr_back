@@ -47,7 +47,7 @@ exports.getProduct = async (req, res, next) => {
     const product = await Product.findById(productId);
 
     if (!product) {
-      const error = new Error('Cannot find a plant with that ID.');
+      const error = new Error('Cannot find a product with that ID.');
       error.statusCode = 404;
       throw error;
     }
